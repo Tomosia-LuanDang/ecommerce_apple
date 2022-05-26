@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require admin/style.min
+ *= require bootstrap.min
+ *= require animate.min
+ *= require magnific-popup
+ *= require nice-select
+ *= require style
+ *= require flaticon
  */
