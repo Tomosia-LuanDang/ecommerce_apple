@@ -1,0 +1,35 @@
+<div class="category-area">
+  <div class="container">
+    <div class="row">
+      <%# render category %>
+      <%= render "categories/all_category"%>
+      <div class="col-xl-9 col-lg-9 col-md-8 ">
+        <div class="new-arrival new-arrival2 product-area">
+          <div class="row">
+            <% @products.each do |product| %>
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <div class="single-new-arrival mb-50 text-center">
+                  <div class="popular-img">
+                    <%= image_tag("iphone-12") %>
+                    <div class="favorit-items">
+                      <%= image_tag("favorit-card") %>
+                    </div>
+                  </div>
+                  <div class="popular-caption">
+                    <p><%= link_to product.name, product_path(product) %></p>
+                    <p><%= product.price %>đ</p>
+                    <p>Đã bán: <%= product.sold %></p>
+                    <button type="button" class="btn btn-outline-success">Mua ngay</button>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <div class="d-flex justify-content-center">
+              <%= paginate @products, window: 2 %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
