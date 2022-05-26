@@ -1,0 +1,51 @@
+<header>
+  <div class="header-area ">
+    <div class="main-header header-sticky">
+      <div class="container-fluid">
+        <div class="menu-wrapper d-flex align-items-center justify-content-between">
+          <div class="header-left d-flex align-items-center">
+            <span class="logo-text">
+              <%= link_to root_path do %>
+                <%= image_tag("logo-text-2") %>
+              <% end %>
+            </span>
+            <!-- Main-menu -->
+            <div class="main-menu  d-none d-lg-block">
+              <nav>
+                <ul id="navigation">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Help</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="header-right1 d-flex align-items-center">
+            <div class="search d-none d-md-block">
+              <ul class="d-flex align-items-center">
+                <li class="mr-15">
+                  <div class="nav-search search-switch d-flex">
+                    <%# <form role="search" class="app-search d-none d-md-block me-3">
+                      <input type="text" placeholder="Search..." class="form-control mt-0">
+                    </form> %>
+                    <%= search_form_for @q do |f| %>
+                      <%= f.search_field :name_cont, placeholder: "Search...", class: "form-control mt-0" %>
+                    <% end %>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-stor">
+                    <%= image_tag("card") %>
+                    <span>0</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
