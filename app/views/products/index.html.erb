@@ -1,27 +1,10 @@
 <div class="container min-height-700">
   <div class="new-arrival new-arrival2 product-area">
-    <% if @product_search.present? %>
+    <% if @products.present? %>
       <div class="row">
-        <% @product_search.each do |product| %>
-          <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
-            <div class="single-new-arrival mb-50 text-center">
-              <div class="popular-img">
-                <%= image_tag("iphone-12") %>
-                <div class="favorit-items">
-                  <%= image_tag("favorit-card") %>
-                </div>
-              </div>
-              <div class="popular-caption">
-                <p><%= link_to product.name, product_path(product) %></p>
-                <p><%= product.price %>đ</p>
-                <p>Đã bán: <%= product.sold %></p>
-                <button type="button" class="btn btn-outline-success">Mua ngay</button>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <%= render @products %>
         <div class="d-flex justify-content-center">
-          <%= paginate @product_search, window: 2 %>
+          <%= paginate @products, window: 2 %>
         </div>
       </div>
     <% else %>

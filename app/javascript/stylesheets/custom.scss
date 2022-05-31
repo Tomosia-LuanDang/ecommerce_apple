@@ -2,7 +2,6 @@ body {
   background-color: #f1f1f1;
 }
 
-
 .header-area {
   .form-control {
     border-radius: 50px;
@@ -72,6 +71,15 @@ body {
   min-height: 700px;
 }
 
+.super_container {
+  .single_product {
+    .container-fluid {
+      background-color: #fff;
+      padding: 11px;
+    }
+  }
+}
+
 .pagination a, .pagination span.current, .pagination span.gap {
   float: left;
   padding: 0 14px;
@@ -84,29 +92,12 @@ body {
 
 .pagination {
   border-left: 1px solid #ddd;
-  .first{
-      padding : 0;
-      float: none;
-      border: none;
+  .pagination-box {
+    padding : 0;
+    float: none;
+    border: none;
   }
-  .prev {
-      padding : 0;
-      float: none;
-      border: none;
-  }
-  .page{
-      padding : 0;
-      float: none;
-      border: none;
-  }
-  .next{
-      padding : 0;
-      float: none;
-      border: none;
-  }
-  .last{
-      padding : 0;
-      float: none;
-      border: none;
+  .first, .prev, .page, .next, .last{
+    @extend .pagination-box
   }
 }

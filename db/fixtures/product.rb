@@ -1,3 +1,4 @@
+Product.delete_all
 30.times do
   name        = Faker::Device.model_name
   description = Faker::Lorem.paragraph_by_chars
