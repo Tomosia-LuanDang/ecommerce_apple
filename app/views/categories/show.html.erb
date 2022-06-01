@@ -3,11 +3,18 @@
   <div class="category-area" id="category-area">
     <div class="container">
       <div class="row">
-        <%= render "all_category"%>
+        <div class="col-xl-3 col-lg-3 col-md-4 ">
+          <div class="category-listing mb-50">
+            <div class="single-listing">
+              <h3>Danh mục</h3>
+              <%= render @categories %>
+            </div>
+          </div>
+        </div>
         <div class="col-xl-9 col-lg-9 col-md-8 ">
           <div class="new-arrival new-arrival2 product-area">
             <div class="row">
-              <%= render partial: "product_by_category", as: :product, collection: @product_by_cate %>
+              <%= render partial: "share/product", collection: @product_by_cate %>
               <div class="d-flex justify-content-center">
                 <%= paginate @product_by_cate, window: 2 %>
               </div>

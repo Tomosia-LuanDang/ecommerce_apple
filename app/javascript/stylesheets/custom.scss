@@ -6,6 +6,15 @@ body {
   .form-control {
     border-radius: 50px;
   }
+  .header-right1 {
+    .profile-pic {
+      .img-circle {
+        border-radius:50%;
+        width:40px;
+        margin-left: 20px;
+      }
+    }
+  }
 }
 
 .image-carousel {
