@@ -2,7 +2,7 @@
   <div class="new-arrival new-arrival2 product-area">
     <% if @products.present? %>
       <div class="row">
-        <%= render @products %>
+        <%= render partial: "share/product", collection: @products %>
         <div class="d-flex justify-content-center">
           <%= paginate @products, window: 2 %>
         </div>
