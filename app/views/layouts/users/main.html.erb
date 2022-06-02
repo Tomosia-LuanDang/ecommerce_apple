@@ -12,9 +12,13 @@
 
   <body>
     <%= render 'layouts/users/header' %>
-    <div class="container-fluid">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
     </div>
     <div class="container min-height-700">
       <div class="justify-content-center">

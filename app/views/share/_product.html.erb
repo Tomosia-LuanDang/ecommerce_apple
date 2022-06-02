@@ -2,9 +2,11 @@
   <div class="single-new-arrival mb-50 text-center">
     <div class="popular-img">
       <%= image_tag("iphone-12") %>
-      <div class="favorit-items">
-        <%= image_tag("favorit-card") %>
-      </div>
+      <%= link_to cart_items_path(pid: product.id), method: :post do %>
+        <div class="favorit-items">
+          <%= image_tag("favorit-card") %>
+        </div>
+      <% end %>
     </div>
     <div class="popular-caption">
       <p><%= link_to product.name, product_path(product) %></p>

@@ -49,7 +49,9 @@
                   </div>
                 </div>
                 <div class="col-xs-6">
-                  <button type="button" class="btn btn-primary shop-button">Add to Cart</button>
+                  <%= link_to carts_path do%>
+                    <button type="button" class="btn btn-primary shop-button">Add to Cart</button>
+                  <% end %>
                   <button type="button" class="btn btn-success shop-button">Buy Now</button>
                 </div>
               </div>

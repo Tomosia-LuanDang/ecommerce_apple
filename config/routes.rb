@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :home
   resources :products
   resources :carts
+  resources :cart_items
   resources :categories
 end
