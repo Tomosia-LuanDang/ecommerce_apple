@@ -4,28 +4,28 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, class: "mt-3" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, class: "mt-3" %><br />
     <%= f.text_field :name, autocomplete: "name", class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone, class: "mt-3" %><br />
     <%= f.text_field :phone, autocomplete: "name", class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :gender %><br />
+    <%= f.label :gender, class: "mt-3" %><br />
     <%= f.radio_button(:gender, User.genders.keys.first, :checked => true) %> &nbsp;Male<br>
     <%= f.radio_button(:gender, User.genders.keys.last) %> &nbsp;Female
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, class: "mt-3" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -33,12 +33,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, class: "mt-3" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: 'btn btn-outline-primary my-2' %>
+    <%= f.submit "Sign up", class: 'btn btn-outline-success my-2' %>
   </div>
 <% end %>
+<div class="mt-2">
   <%= render "devise/shared/links" %>
+</div>

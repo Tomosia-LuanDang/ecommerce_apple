@@ -118,9 +118,9 @@ ActiveRecord::Schema.define(version: 2022_05_30_090655) do
     t.string "name"
     t.string "phone"
     t.boolean "gender"
-    t.integer "role", default: 2, null: false
+    t.integer "role", default: 0, null: false
     t.string "avatar"
-    t.boolean "is_active"
+    t.boolean "is_active", default: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
