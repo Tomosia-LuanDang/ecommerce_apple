@@ -1,10 +1,35 @@
 body {
   background-color: #f1f1f1;
 }
-
 .header-area {
   .form-control {
     border-radius: 50px;
+  }
+
+  .header-left {
+    margin-left: 60px;
+  }
+
+  .header-right1 {
+    margin-right: 30px;
+    .profile-pic {
+      .img-circle {
+        border-radius:50%;
+        width:40px;
+        margin-left: 20px;
+      }
+    }
+
+    .dropdown {
+      .dropdown-menu {
+        transform: translate(-147px, 33.2222px) !important;
+        border-radius: 10px;
+      }
+    }
+    a {
+      color: #9F78FF;
+      text-decoration: none;
+    }
   }
 }
 
@@ -99,5 +124,11 @@ body {
   }
   .first, .prev, .page, .next, .last{
     @extend .pagination-box
+  }
+}
+
+.form-area {
+  a {
+    text-decoration: none;
   }
 }

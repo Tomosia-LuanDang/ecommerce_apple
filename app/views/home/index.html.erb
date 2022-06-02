@@ -1,6 +1,29 @@
 <main>
   <%= render "carousel" %>
-  <%= render "products/all_products" %>
+  <div class="category-area category-product">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-4 ">
+          <div class="category-listing mb-50">
+            <div class="single-listing">
+              <h3>Danh mục</h3>
+              <%= render @categories %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-8 ">
+          <div class="new-arrival new-arrival2 product-area">
+            <div class="row">
+              <%= render partial: "share/product", collection: @products %>
+              <div class="d-flex justify-content-center">
+                <%= paginate @products, window: 2 %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="categories-area section-padding-top20 gray-bg">
     <div class="container-fluid">
       <div class="row">
