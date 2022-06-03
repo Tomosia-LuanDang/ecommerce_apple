@@ -34,9 +34,13 @@
                 </li>
                 <li>
                   <%= link_to carts_path do %>
-                    <div class="card-stor">
+                    <div class="card-stor js-total-item">
                       <%= image_tag("card") %>
-                      <span>0</span>
+                      <span id="cart-quantity">
+                        <% if @current_cart.present? %>
+                          <%= @current_cart.cart_items.size %>
+                        <% end %>
+                      </span>
                     </div>
                   <% end %>
                 </li>

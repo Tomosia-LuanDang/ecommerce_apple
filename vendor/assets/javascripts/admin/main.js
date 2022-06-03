@@ -1,6 +1,6 @@
 (function ($)
   { "use strict"
-  
+
 
 /* 1. Proloder */
     $(window).on('load', function () {
@@ -21,20 +21,6 @@
         $('#back-top').fadeIn(500);
       }
     });
-
-  // Scroll Up
-    $('#back-top a').on("click", function () {
-      $('body,html').animate({
-        scrollTop: 0
-      }, 800);
-      return false;
-    });
-  
-    
-/* 4. MainSlider-1 */
-    // h1-hero-active
-
-
 
 /* 3. slick Nav */
 // mobile_menu
@@ -66,7 +52,7 @@
         autoplaySpeed: 4000,
         dots: true,
         fade: true,
-        arrows: false, 
+        arrows: false,
         prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
         responsive: [{
@@ -114,155 +100,15 @@
     }
     mainSlider();
 
-    
-
-/* 4. Testimonial Active*/
-  var testimonial = $('.h1-testimonial-active');
-  if(testimonial.length){
-  testimonial.slick({
-      dots: false,
-      infinite: true,
-      speed: 1000,
-      autoplay:true,
-      loop:true,
-      arrows: false,
-      prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
-      nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: false,
-            arrow:false
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows:false
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows:false,
-          }
-        }
-      ]
-    });
-  }
-
-
-
 /* 6. Nice Selectorp  */
   var nice_Select = $('select');
     if(nice_Select.length){
       nice_Select.niceSelect();
     }
 
- // Brand Active
- $('.brand-active').slick({
-  dots: false,
-  infinite: true,
-  autoplay: true,
-  speed: 400,
-  arrows: false,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false,
-      }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: false,
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    },
-
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
-
 /* 7. data-background */
     $("[data-background]").each(function () {
       $(this).css("background-image", "url(" + $(this).attr("data-background") + ")")
       });
-
-
-
-// 11. ---- Mailchimp js --------//  
-    
-
-// 12 Pop Up Img
-    var popUp = $('.single_gallery_part, .img-pop-up');
-      if(popUp.length){
-        popUp.magnificPopup({
-          type: 'image',
-          gallery:{
-            enabled:true
-          }
-        });
-      }
-// 12 Pop Up Video
-    var popUp = $('.popup-video');
-    if(popUp.length){
-      popUp.magnificPopup({
-        type: 'iframe'
-      });
-    }
-
-  //17.  Progress barfiller
-
-    $('#bar1').barfiller();
-    $('#bar2').barfiller();
-
-  
-// Modal Activation
-  $('.search-switch').on('click', function () {
-    $('.search-model-box').fadeIn(400);
-  });
-
-  $('.search-close-btn').on('click', function () {
-    $('.search-model-box').fadeOut(400, function () {
-        $('#search-input').val('');
-    });
-  });
-
-
 
 })(jQuery);

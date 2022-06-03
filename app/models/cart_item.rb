@@ -1,1 +1,4 @@
-class CartItem < ApplicationRecord;end
+class CartItem < ApplicationRecord
+  belongs_to :product
+  belongs_to :cart, dependent: :destroy
+end
