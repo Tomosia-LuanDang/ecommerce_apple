@@ -35,8 +35,11 @@ body {
 
 .image-carousel {
   .carousel-inner {
-    margin-left: 160px;
-    width: 1036px;
+    margin-left: 250px;
+    width: 800px;
+    img {
+      width: 800px;
+    }
   }
 
   .carousel-control-prev {
@@ -45,6 +48,14 @@ body {
 
   .carousel-control-next {
     margin-right: 100px;
+  }
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 50px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 100%, 100%;
+    border-radius: 50%;
   }
 }
 
@@ -130,5 +141,11 @@ body {
 .form-area {
   a {
     text-decoration: none;
+  }
+}
+
+.cart-items {
+  .img-cart-item {
+    width: 100px;
   }
 }

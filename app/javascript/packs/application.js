@@ -5,16 +5,10 @@
 //
 
 import "/vendor/assets/javascripts/admin/custom.js"
-import "/vendor/assets/javascripts/admin/jquery.min.js"
-import "/vendor/assets/javascripts/admin/sidebarmenu.js"
-
-import "/vendor/assets/javascripts/admin/jquery-1.12.4.min.js"
 import "/vendor/assets/javascripts/admin/slick.min.js"
-import "/vendor/assets/javascripts/admin/jquery.slicknav.min.js"
-import "/vendor/assets/javascripts/admin/jquery.nice-select.min.js"
-import "/vendor/assets/javascripts/admin/jquery.sticky.js"
-import "/vendor/assets/javascripts/admin/jquery.barfiller.js"
 import "/vendor/assets/javascripts/admin/main.js"
+
+import "./cart_product"
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -27,11 +21,12 @@ import "@fortawesome/fontawesome-free/css/all"
 
 import { Tooltip, Popover } from "bootstrap"
 
+require("@popperjs/core")
+import $ from 'jquery';
+global.$ = jQuery;
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-require("@popperjs/core")
 
 // Import the specific modules you may need (Modal, Alert, etc)
 

@@ -22,8 +22,7 @@
               </ol>
             </nav>
             <div class="product_name"><%= @product.name %></div>
-            <div><strike class="product_discount"><span>14.000.000đ<span></strike><span class="ml-2 product_price"><%= @product.price %>đ</span></div>
-            <div> <span class="product_saved">You Saved:</span> <span>1.000.000đ<span> </div>
+            <div><span class="ml-2 product_price"><%= @product.price %>đ</span></div>
               <div> <span class="product_info">
                 <%= @product.description %>
               </div>
@@ -37,8 +36,7 @@
                     </div>
                     <div class="col-3 w-25">
                       <div class="quantity">
-                        <input value="1" min="1" max=<%= @product.residual %> class="form-control text-center change-quatity" type="number" name="quantity" id="quantity">
-                        <input value="1" class="cart_product_id" type="hidden" name="id" id="id">
+                        <input value="1" min="1" max=<%= @product.residual %> class="form-control text-center change-quatity product-quatity" type="number" id="quantity">
                       </div>
                     </div>
                     <div class="col-3 w-25">
@@ -49,7 +47,7 @@
                   </div>
                 </div>
                 <div class="col-xs-6">
-                  <button type="button" class="btn btn-primary shop-button">Add to Cart</button>
+                  <button type="button" class="btn btn-primary shop-button btn-add-to-cart" data-product-id="<%= @product.id %>">Add to Cart</button>
                   <button type="button" class="btn btn-success shop-button">Buy Now</button>
                 </div>
               </div>

@@ -2,7 +2,8 @@
   <div class="single-new-arrival mb-50 text-center">
     <div class="popular-img">
       <%= image_tag("iphone-12") %>
-      <div class="favorit-items">
+      <input type="hidden" class="product-quatity" value="1">
+      <div class="favorit-items btn-add-to-cart" data-product-id="<%= product.id %>">
         <%= image_tag("favorit-card") %>
       </div>
     </div>
