@@ -1,0 +1,30 @@
+<div class="d-flex flex-row justify-content-between align-items-center pt-lg-4 pt-2 pb-3 border-bottom">
+  <div class="d-flex flex-row align-items-center">
+    <div>
+      <%= image_tag "iphone-12", class: "img-cart-item" %>
+    </div>
+    <div class="d-flex flex-column pl-md-3 pl-1">
+      <%= link_to product_path(cart_item.product) do %>
+        <div>
+          <h6><%= cart_item.product.name %></h6>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="pl-md-0 pl-1 cart-item-price"><b><%= cart_item.product.price %>đ</b></div>
+  <div class="pl-md-0 pl-2">
+    <div class="quantity">
+      <input type="hidden" class="product-id" data-product-id="<%= cart_item.product.id %>">
+      <input value=<%= cart_item.quantity %> min="1" max=<%= cart_item.product.residual %>
+      class="form-control text-center change-quatity cart-item-qty"
+      type="number" name="quantity" id="quantity" data-cart-item-id="<%= cart_item.id %>">
+      <input value="1" class="cart_product_id" type="hidden" name="id" id="id">
+    </div>
+  </div>
+  <div class="pl-md-0 pl-1 total-of-cart-item-<%= cart_item.id %>">
+    <b><%= cart_item.total_price_of_cart_item %>đ</b>
+  </div>
+  <div class="close delete-cart-item">
+    <%= image_tag "icons-delete-25" %>
+  </div>
+</div>
