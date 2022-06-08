@@ -6,9 +6,11 @@ Rails.application.routes.draw do
     resources :dashboard
     resources :users
   end
-  resources :home
-  resources :products
-  resources :carts
-  resources :cart_items
-  resources :categories
+  resources :home,       only: [:index]
+  resources :carts,      only: [:index]
+  resources :categories, only: [:index, :show]
+  resources :products,   only: [:index, :show]
+  resources :cart_items, only: [:create, :update, :destroy]
+  resources :orders
+  resources :charges, only: [:new, :create]
 end

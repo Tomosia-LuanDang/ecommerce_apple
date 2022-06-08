@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
   private
 
   def total_payment
+    return if current_user&.cart&.cart_items.nil?
     current_user.cart.cart_items.inject(0){ |total_price, item|
-      total_price + item.total_price_of_cart_item
+      total_price + item.total_price
     }
   end
 end

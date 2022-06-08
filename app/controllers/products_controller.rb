@@ -11,6 +11,6 @@ class ProductsController < ApplicationController
     @q = Product.ransack(params[:q])
     @product = Product.find(params[:id])
 
-    @current_cart = current_user.cart
+    @current_cart = current_user&.cart
   end
 end

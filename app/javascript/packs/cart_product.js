@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
   });
 
-  $("body").on("change", ".cart-item-qty", function(){
+  $(document).on("change", ".cart-item-qty", function(){
     var quantity = $(this).val();
     var cart_item_id = $(this).attr("data-cart-item-id");
     var product_id = $(this).parent().find(".product-id").attr("data-product-id");
@@ -26,7 +26,7 @@ $(document).ready(function(){
     });
   });
 
-  $('body').on('click', '.delete-cart-item', function() {
+  $(document).on('click', '.delete-cart-item', function() {
     var cart_item_id = $(this).parent().find(".cart-item-qty").attr("data-cart-item-id");
     $.ajax({
       url: '/cart_items/' + cart_item_id,

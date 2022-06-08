@@ -1,17 +1,18 @@
 <div class="container bg-white rounded-top mt-5 cart-layout" id="zero-pad">
   <div class="row d-flex justify-content-center">
     <div class="col-lg-10 col-12 pt-3 cart-items">
-      <div class="d-flex flex-column pt-4">
-        <div class="font-weight-normal"><%= @cart_items.size   %> items</div>
+      <div class="d-flex pt-4">
+        <div class="font-weight-normal size-cart"><%= @cart_items&.size || 0 %> items</div>
       </div>
-      <div class="d-flex flex-row px-lg-5 mx-lg-5 mobile" id="heading">
-        <div class="px-lg-5 mr-lg-5" id="produc">PRODUCTS</div>
-        <div class="px-lg-5 ml-lg-5" id="prc">PRICE</div>
-        <div class="px-lg-5 ml-lg-1" id="quantity">QUANTITY</div>
-        <div class="px-lg-5 ml-lg-3" id="total">TOTAL</div>
+      <div class="row" id="heading">
+        <div class="col" id="produc">Products</div>
+        <div class="col" id="prc">Unit Price</div>
+        <div class="col" id="quantity">Quantity</div>
+        <div class="col" id="total">Total price</div>
+        <div class="col" id="total">Action</div>
       </div>
       <div class="cart-item-container min-height-500">
-        <%= render partial: "cart_items/cart_item", collection: @cart_items %>
+        <%= render @cart_items %>
       </div>
     </div>
   </div>
@@ -27,13 +28,14 @@
         </div>
         <div class="px-md-0 px-1" id="footer-font">
           <b class="pl-md-4">
-            Subtotal
-            <span class="pl-md-4 total-payment" data-cart-id="<%= @current_cart.id %>">
-              <%= @total_payment %>đ
-            </span></b>
+            Total:
+            <span class="pl-md-4 total-payment" data-cart-id="<%= @current_cart&.id %>"><%= format_number_to_currency @total_payment %> đ</span>
+          </b>
         </div>
         <div>
-          <button class="btn btn-sm bg-dark text-white px-lg-5 px-3">Checkout</button>
+          <%= link_to new_order_path do %>
+            <button class="btn btn-sm bg-dark text-white px-lg-5 px-3">Checkout</button>
+          <% end %>
         </div>
       </div>
     </div>
