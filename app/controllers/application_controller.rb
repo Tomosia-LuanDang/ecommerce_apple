@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  private
+
+  def total_payment
+    current_user.cart.cart_items.inject(0){ |total_price, item|
+      total_price + item.total_price_of_cart_item
+    }
+  end
 end
