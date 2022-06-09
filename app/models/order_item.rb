@@ -1,1 +1,3 @@
-class OrderItem < ApplicationRecord;end
+class OrderItem < ApplicationRecord
+  belongs_to :order
+end

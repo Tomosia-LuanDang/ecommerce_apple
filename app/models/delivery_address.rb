@@ -1,1 +1,3 @@
-class DeliveryAddress < ApplicationRecord;end
+class DeliveryAddress < ApplicationRecord
+  belongs_to :user
+end

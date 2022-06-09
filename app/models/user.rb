@@ -6,5 +6,7 @@ class User < ApplicationRecord
   enum role:   { admin: 1, user: 0 }
   enum gender: { male: true, female: false }
 
-  has_one :cart
+  has_one  :cart
+  has_many :delivery_addresses
+  has_many :orders
 end

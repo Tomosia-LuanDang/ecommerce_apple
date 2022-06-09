@@ -9,7 +9,7 @@
     </div>
     <div class="popular-caption">
       <p><%= link_to product.name, product_path(product) %></p>
-      <p><%= product.price %>đ</p>
+      <p><%= format_number_to_currency product.price %>đ</p>
       <p>Đã bán: <%= product.sold %></p>
       <button type="button" class="btn btn-outline-success">Mua ngay</button>
     </div>

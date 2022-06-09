@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_090655) do
+ActiveRecord::Schema.define(version: 2022_05_30_090028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_090655) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "quantity"
-    t.float "total_price_of_cart_item"
+    t.float "total_price"
     t.bigint "cart_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -36,8 +36,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_090655) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.float "total_price_of_cart"
-    t.float "price_after_taxes"
+    t.float "total_price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,6 +63,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_090655) do
   end
 
   create_table "delivery_addresses", force: :cascade do |t|
+    t.string "name"
     t.string "phone"
     t.string "address"
     t.bigint "user_id", null: false
@@ -73,23 +73,30 @@ ActiveRecord::Schema.define(version: 2022_05_30_090655) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.float "actual_price"
+    t.float "price_pay"
+    t.float "total_price"
     t.integer "quantity"
     t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "status"
     t.float "shipping_fee"
-    t.float "total_price_of_order"
+    t.float "total_payment"
     t.integer "payment_method"
     t.bigint "cart_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "delivery_address_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["delivery_address_id"], name: "index_orders_on_delivery_address_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -140,7 +147,10 @@ ActiveRecord::Schema.define(version: 2022_05_30_090655) do
   add_foreign_key "coupons", "products"
   add_foreign_key "delivery_addresses", "users"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
   add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "delivery_addresses"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "recently_products", "products"
 end
