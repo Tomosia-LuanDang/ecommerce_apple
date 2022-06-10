@@ -21,16 +21,29 @@
             <strong><%= format_number_to_currency @total_price %> đ</strong>
           </li>
         </ul>
+
       </div>
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Billing address</h4>
-        <%= form_with url: "/orders", method: :post do |f| %>
+        <%= form_with url: "/orders", method: :post, local: false do |f| %>
           <%= f.hidden_field :total_payment, value: @total_price %>
           <%= f.hidden_field :shipping_fee, value: 0 %>
           <div class="row g-3">
             <div class="col-12">
-              <%= f.label :select_address, class:"form-label" %>
-              <%= f.select :address, option_for_address, {prompt: "Select One"}, class: "form-select" %>
+              <%= f.label :delivery_address, class:"form-label" %>
+              <%= f.select :address, option_for_address, {}, class: "form-select delivery-address" %>
+            </div>
+            <div class="col-12">
+              <label>Name</label>
+              <input class="form-control name-address" readonly>
+            </div>
+            <div class="col-12">
+              <label>Phone</label>
+              <input class="form-control phone-address" readonly>
+            </div>
+            <div class="col-12">
+              <label>Address</label>
+              <input class="form-control current-address" readonly>
             </div>
           </div>
           <hr class="my-4">
