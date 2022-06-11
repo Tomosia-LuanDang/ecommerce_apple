@@ -5,7 +5,7 @@ module OrdersHelper
 
   def option_for_address
     current_user.delivery_addresses.map do |item|
-      "Address #{item.id}"
+      item.address
     end
   end
 end
