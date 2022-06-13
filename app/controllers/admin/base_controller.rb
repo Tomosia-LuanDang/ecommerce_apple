@@ -1,3 +1,4 @@
 class Admin::BaseController < ApplicationController
-    layout "layouts/admin/dashboard"
+  before_action :authenticate_user!
+  layout "layouts/admin/dashboard"
 end
