@@ -12,14 +12,14 @@ User.create!(
   created_at:            Time.zone.now
 )
 
-10.times do |n|
+30.times do |n|
   password = "123123"
   User.create!(
-    email:                 "luan#{n}@gmail.com",
-    name:                  "Luan Dang #{n}",
-    phone:                 "0389 456 666",
-    gender:                true,
-    role:                  1,
+    email:                 Faker::Internet.email,
+    name:                  Faker::Name.name,
+    phone:                 Faker::PhoneNumber.cell_phone,
+    gender:                Faker::Gender.binary_type,
+    role:                  0,
     avatar:                "varun.jpg",
     is_active:             true,
     password:              password,
