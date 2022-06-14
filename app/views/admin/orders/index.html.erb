@@ -8,20 +8,20 @@
           <thead>
             <tr>
               <th class="border-top-0">Id</th>
-              <th class="border-top-0">Name</th>
-              <th class="border-top-0">Email</th>
-              <th class="border-top-0">Phone</th>
-              <th class="border-top-0">Gender</th>
-              <th class="border-top-0">Role</th>
-              <th class="border-top-0">Active</th>
+              <th class="border-top-0">Payment method</th>
+              <th class="border-top-0">Shipping fee</th>
+              <th class="border-top-0">Total payment</th>
+              <th class="border-top-0">Cart Id</th>
+              <th class="border-top-0">User Id</th>
+              <th class="border-top-0">Delivery Address Id</th>
             </tr>
           </thead>
           <tbody>
-            <%= render partial: "admin/users/user", collection: @users %>
+            <%= render partial: "admin/orders/order", collection: @orders %>
           </tbody>
         </table>
         <div class="d-flex justify-content-center">
-          <%= paginate @users, window: 2 %>
+          <%= paginate @orders, window: 2 %>
         </div>
       </div>
     </div>

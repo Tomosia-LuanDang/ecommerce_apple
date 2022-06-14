@@ -9,19 +9,14 @@
             <tr>
               <th class="border-top-0">Id</th>
               <th class="border-top-0">Name</th>
-              <th class="border-top-0">Email</th>
-              <th class="border-top-0">Phone</th>
-              <th class="border-top-0">Gender</th>
-              <th class="border-top-0">Role</th>
-              <th class="border-top-0">Active</th>
             </tr>
           </thead>
           <tbody>
-            <%= render partial: "admin/users/user", collection: @users %>
+            <%= render partial: "admin/categories/category", collection: @categories %>
           </tbody>
         </table>
         <div class="d-flex justify-content-center">
-          <%= paginate @users, window: 2 %>
+          <%=  %>
         </div>
       </div>
     </div>
