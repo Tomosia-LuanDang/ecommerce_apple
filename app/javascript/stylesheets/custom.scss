@@ -1,6 +1,7 @@
 body {
   background-color: #f1f1f1;
 }
+
 .header-area {
   .form-control {
     border-radius: 50px;
@@ -156,6 +157,7 @@ body {
 
 .size-cart {
   margin: 0 20px 20px;
+  color: #3e5569;
 }
 
 .offset-md-12 {
@@ -164,4 +166,9 @@ body {
 
 .stripe-input {
   padding-left: 0;
+}
+
+
+.category-name {
+  cursor: pointer;
 }
