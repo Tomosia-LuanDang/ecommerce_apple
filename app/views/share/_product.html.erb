@@ -8,10 +8,10 @@
       </div>
     </div>
     <div class="popular-caption">
-      <p><%= link_to product.name, product_path(product) %></p>
+      <p><%= link_to product.name, product_path(product), class: "text-decoration-none" %></p>
       <p><%= format_number_to_currency product.price %>đ</p>
-      <p>Đã bán: <%= product.sold %></p>
-      <button type="button" class="btn btn-outline-success">Mua ngay</button>
+      <p>Sold: <%= product.sold %></p>
+      <button type="button" class="btn btn-outline-success">Buy now</button>
     </div>
   </div>
 </div>
