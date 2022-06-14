@@ -3,7 +3,7 @@
     <div class="popular-img">
       <%= image_tag("iphone-12") %>
       <input type="hidden" class="product-quatity" value="1">
-      <div class="favorit-items btn-add-to-cart" data-product-id="<%= product.id %>">
+      <div class="favorit-items btn-add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal" data-product-id="<%= product.id %>">
         <%= image_tag("favorit-card") %>
       </div>
     </div>
@@ -15,3 +15,4 @@
     </div>
   </div>
 </div>
+<%= render "share/modal" %>

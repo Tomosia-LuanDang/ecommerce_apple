@@ -1,3 +1,3 @@
 class Admin::BaseController < ApplicationController
-    layout "layouts/admin/dashboard"
+  layout "layouts/admin/dashboard"
 end
