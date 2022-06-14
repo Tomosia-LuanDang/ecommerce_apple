@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2022_05_30_090028) do
   end
 
   create_table "delivery_addresses", force: :cascade do |t|
-    t.string "name"
     t.string "phone"
     t.string "address"
     t.bigint "user_id", null: false
@@ -89,6 +88,10 @@ ActiveRecord::Schema.define(version: 2022_05_30_090028) do
     t.float "shipping_fee"
     t.float "total_payment"
     t.integer "payment_method"
+    t.string "email_stripe"
+    t.string "cart_number"
+    t.string "expiration_date"
+    t.string "cvc"
     t.bigint "cart_id", null: false
     t.bigint "user_id", null: false
     t.bigint "delivery_address_id", null: false

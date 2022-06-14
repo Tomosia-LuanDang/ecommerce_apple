@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'config'
 gem 'devise'
+gem 'enumerize'
 gem 'faker', '2.1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.5'
@@ -23,6 +24,7 @@ gem 'sidekiq', '~> 4.1', '>= 4.1.2'
 gem 'stripe', '~> 6.2'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
