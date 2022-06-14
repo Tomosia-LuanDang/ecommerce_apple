@@ -22,6 +22,7 @@ import "/vendor/assets/javascripts/admin/main.js"
 
 import "./cart_product"
 import "./order"
+import "./home"
 
 import "bootstrap"
 import 'bootstrap-icons/font/bootstrap-icons.css'
