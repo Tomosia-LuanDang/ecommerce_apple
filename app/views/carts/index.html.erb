@@ -1,19 +1,23 @@
 <div class="container bg-white rounded-top mt-5 cart-layout" id="zero-pad">
-  <div class="row d-flex justify-content-center">
+  <div class="row d-flex justify-content-center min-height-700">
     <div class="col-lg-10 col-12 pt-3 cart-items">
       <div class="d-flex pt-4">
         <div class="font-weight-normal size-cart"><%= @cart_items&.size || 0 %> items</div>
       </div>
-      <div class="row" id="heading">
-        <div class="col" id="produc">Products</div>
-        <div class="col" id="prc">Unit Price</div>
-        <div class="col" id="quantity">Quantity</div>
-        <div class="col" id="total">Total price</div>
-        <div class="col" id="total">Action</div>
-      </div>
-      <div class="cart-item-container min-height-500">
-        <%= render @cart_items %>
-      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Products</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="cart-item-container min-height-500">
+          <%= render partial: "cart_items/cart_item", collection: @cart_items %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -33,8 +37,10 @@
           </b>
         </div>
         <div>
-          <%= link_to new_order_path do %>
-            <button class="btn btn-sm bg-dark text-white px-lg-5 px-3">Checkout</button>
+          <% if @cart_items.present? %>
+            <%= link_to new_order_path do %>
+              <button class="btn btn-sm bg-dark text-white px-lg-5 px-3 checkout-order">Checkout</button>
+            <% end %>
           <% end %>
         </div>
       </div>
