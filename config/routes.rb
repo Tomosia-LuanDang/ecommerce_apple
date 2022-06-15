@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :products,   only: [:index, :show]
   resources :cart_items, only: [:create, :update, :destroy]
   resources :orders,     only: [:new, :create]
+  get "*path", to: "application#page_404"
 end

@@ -18,7 +18,6 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Products</a></li>
-                <li class="breadcrumb-item active">Accessories</li>
               </ol>
             </nav>
             <div class="product_name"><%= @product.name %></div>
@@ -31,7 +30,7 @@
                   <div class="row">
                     <div class="col-3 w-25">
                       <div class="text-quantity">
-                        <p>Số lượng</p>
+                        <p>Quantity</p>
                       </div>
                     </div>
                     <div class="col-3 w-25">
@@ -41,13 +40,13 @@
                     </div>
                     <div class="col-3 w-25">
                       <div class="available-product">
-                        <p><%= @product.residual %> sản phẩm có sẵn</p>
+                        <p><%= @product.residual %> pieces available</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-6">
-                  <button type="button" class="btn btn-primary shop-button btn-add-to-cart" data-product-id="<%= @product.id %>">Add to Cart</button>
+                  <button type="button" class="btn btn-primary shop-button btn-add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal" data-product-id="<%= @product.id %>">Add to Cart</button>
                   <button type="button" class="btn btn-success shop-button">Buy Now</button>
                 </div>
               </div>
@@ -55,7 +54,7 @@
           </div>
         </div>
         <div class="row row-underline">
-          <div class="col-md-6"> <span class=" deal-text">Thông Số Kỹ Thuật</span> </div>
+          <div class="col-md-6"> <span class=" deal-text">Specifications</span> </div>
           <div class="col-md-6"> <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a> </div>
         </div>
         <div class="row">
@@ -70,10 +69,12 @@
                     </ul>
                   </td>
                 </tr>
-             </tbody>
-           </table>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "share/modal" %>

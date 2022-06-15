@@ -2,3 +2,6 @@ $(".cart-item-container").html("<%= escape_javascript(render partial: "cart_item
 $(".total-payment").text("<%= format_number_to_currency @total_payment %> đ")
 $(".size-cart").text("<%= current_user.cart.cart_items.size %> items")
 $("#cart-quantity").text("<%= current_user.cart.cart_items.size %>")
+<% if @cart_items.blank? %>
+  $(".checkout-order").addClass("visually-hidden");
+<% end %>
