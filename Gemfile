@@ -12,7 +12,6 @@ gem 'faker', '2.1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.5'
 gem 'kaminari'
-gem "paranoia", "~> 2.2"
 gem 'pg', '~> 1.3', '>= 1.3.5'
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 1.1'
@@ -23,7 +22,7 @@ gem 'sass-rails', '>= 6'
 gem 'seed-fu', '~> 2.3'
 gem 'sidekiq', '~> 4.1', '>= 4.1.2'
 gem 'stripe', '~> 6.2'
-gem 'turbolinks', '~> 5'
+gem 'turbolinks'
 gem 'webpacker', '~> 5.0'
 
 
