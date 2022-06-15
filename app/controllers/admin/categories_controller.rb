@@ -2,7 +2,7 @@ class Admin::CategoriesController < Admin::BaseController
   def index
     @categories = Category.all
   end
-
+  
   def destroy
     Category.find(params[:id]).destroy
     @q = Category.ransack(params[:q])
