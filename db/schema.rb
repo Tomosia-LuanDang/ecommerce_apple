@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2022_06_14_183331) do
   end
 
   create_table "delivery_addresses", force: :cascade do |t|
+    t.string "name"
     t.string "phone"
     t.string "address"
     t.bigint "user_id", null: false
