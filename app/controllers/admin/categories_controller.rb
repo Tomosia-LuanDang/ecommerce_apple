@@ -18,4 +18,12 @@ class Admin::CategoriesController < Admin::BaseController
     flash[:success] = "Update success!"
     redirect_to admin_categories_path
   end
+
+  def show
+
+    binding.pry
+    
+    @categories = Category.all
+    @product_by_cate = Category.find(params[:id]).products.page(params[:page]).per(12)
+  end
 end

@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout Proc.new { |controller| controller.devise_controller? ? "users/main" : "application"}
-  
+
   def page_404
     render file: "public/404.html", layout: false
   end
-  
+
   protected
 
   def configure_permitted_parameters

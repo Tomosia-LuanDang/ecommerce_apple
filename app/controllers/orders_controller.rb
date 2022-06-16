@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
       @order.update(status: 1)
     end
   end
-  
+
   private
 
   def generates_order

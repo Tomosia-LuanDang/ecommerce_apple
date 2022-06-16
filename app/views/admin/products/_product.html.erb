@@ -1,6 +1,7 @@
 <tr>
   <td><%= product.id %></td>
-  <td><%= product.image %></td>
+  <td class="product-image">
+    <%= image_tag product.image.url if product.image? %>
   <td>
     <%= link_to admin_products_path(product.id), class: "user-name" do %>
       <%= product.name %>
@@ -17,7 +18,9 @@
   </td>
   <td>
     <div class="close update-poduct" data-product-id="<%= product.id %>">
-      <%= image_tag "icons-pen-35" %>
+      <%= link_to edit_admin_product_path(product) do %>
+        <%= image_tag "icons-pen-35" %>
+      <% end %>
     </div>
   </td>
 </tr>
