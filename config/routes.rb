@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
 
   namespace :admin do
-    resources :dashboard
-    resources :users
+    resources :dashboard,   only: [:index]
+    resources :users,       only: [:index, :show]
+    resources :categories,  only: [:index, :destroy, :edit, :update]
+    resources :products,    only: [:index, :destroy, :edit, :update]
+    resources :orders,      only: [:index]
   end
   resources :home,       only: [:index]
   resources :carts,      only: [:index]
