@@ -21,31 +21,15 @@
             <strong><%= format_number_to_currency @total_price %> đ</strong>
           </li>
         </ul>
-        <%= form_with url: "/orders", method: :post, local: true do |f| %>
+        <%= form_with url: "/orders", method: :post, local: true, id: "payment-form" do |f| %>
         <div class="col-md-12 offset-md-12 col-10 offset-1 pl-0 pr-0 visually-hidden" id="form-payment">
           <div class="card">
             <div class="card-body">
-              <div class="form-group">
-                <label for="emailStripe"><strong>Email</strong></label>
-                <%= f.text_field :email_stripe, class: "form-control", id: "email-stripe", placeholder: "Email" %>
+              <div id="card-element">
+                <!-- Elements will create input elements here -->
               </div>
-              <div class="form-group">
-                <label for="validationTooltipCardNumber"><strong>Card Number</strong></label>
-                <div class="input-group">
-                  <%= f.text_field :cart_number, maxlength: 19, class: "form-control border-right-0", id: "card-number", placeholder: "Card Number" %>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text rounded-right" id="validationTooltipCardNumber"><i class="fa fa-credit-card"></i></span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputExpirationDate"><strong>Expiration Date</strong></label>
-                  <%= f.text_field :expiration_date, maxlength: 5, class: "form-control", id: "expiration-date", placeholder: "MM / YY" %>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputCvcCode"><strong>CVC Code</strong></label>
-                  <%= f.text_field :cvc, maxlength: 4, class: "form-control", id: "cvc-code", placeholder: "CVC" %>
-                </div>
-              </div>
+              <!-- We'll put the error messages in this element -->
+              <div id="card-errors" role="alert"></div>
             </div>
           </div>
         </div>

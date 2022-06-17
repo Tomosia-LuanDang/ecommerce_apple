@@ -1,6 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
   def index
-    @q = Product.ransack(params[:q])
+    @q = Product.includes(:category).ransack(params[:q])
     @products = @q.result.page(params[:page]).per(15).oldest
     @category = Category.all
   end

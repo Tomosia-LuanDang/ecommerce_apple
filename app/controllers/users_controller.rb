@@ -5,8 +5,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update!(user_params)
-    redirect_to user_path(current_user)
+    if current_user.update(user_params)
+      redirect_to user_path(current_user)
+      flash[:notice] = "Update profile success!"
+    else
+      @q       = Product.ransack(params[:q])
+      @address = current_user.delivery_addresses
+      render :show
+    end
   end
 
   private

@@ -5,8 +5,14 @@ class AddressesController < ApplicationController
   end
 
   def create
-    current_user.delivery_addresses.create!(address_params)
-    redirect_to current_user
+    @q = Product.ransack(params[:q])
+    @address = current_user.delivery_addresses.new(address_params)
+    if @address.save
+      redirect_to current_user
+      flash[:notice] = "Create address success!"
+    else
+      render :new
+    end
   end
 
   private

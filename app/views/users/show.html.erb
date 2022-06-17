@@ -35,6 +35,7 @@
       <div class="card">
         <div class="card-body">
           <%= form_for current_user do |f| %>
+            <%= render 'share/error_messages', object:  f.object %>
             <%= f.label :avatar %>
             <div class="picture my-3">
               <%= f.file_field :avatar, accept: "image/jpeg, image/gif, image/png, image/jpg", onchange: "loadFile(event)" %>

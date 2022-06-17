@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_one  :cart
   has_many :delivery_addresses
   has_many :orders
+
+  validates :name, :email, :phone, :gender, presence: true
+  validates :email, format: { with: VALID_EMAIL_REGEX }
+  validates :phone, format: { with: VALID_PHONE_REGEX }
 end
