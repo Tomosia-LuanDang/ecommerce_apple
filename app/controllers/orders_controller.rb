@@ -15,6 +15,9 @@ class OrdersController < ApplicationController
   end
 
   def create
+
+    binding.pry
+    
     @cart_items = current_user.cart.cart_items
     generates_order
     if params[:payment_method] == 'card'
@@ -22,7 +25,7 @@ class OrdersController < ApplicationController
       @order.update(status: 1)
     end
   end
-  
+
   private
 
   def generates_order

@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require 'carrierwave'
 
 
 # Require the gems listed in Gemfile, including any gems

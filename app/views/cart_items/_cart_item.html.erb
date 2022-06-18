@@ -1,6 +1,10 @@
 <tr>
   <td>
-    <%= image_tag "iphone-12", class: "img-cart-item" %>
+    <% if cart_item.product.image? %>
+        <%= image_tag cart_item.product.image.url, class: "img-cart-item" %>
+      <% else %>
+        <%= image_tag "apple_logo_grey.svg.png", class: "img-cart-item" %>
+      <% end %>
     <b><%= cart_item.product.name %></b>
   </td>
   <td class="align-middle">

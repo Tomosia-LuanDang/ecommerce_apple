@@ -3,17 +3,19 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
 
   namespace :admin do
-    resources :dashboard,   only: [:index]
-    resources :users,       only: [:index, :show]
-    resources :categories,  only: [:index, :destroy, :edit, :update]
-    resources :products,    only: [:index, :destroy, :edit, :update]
-    resources :orders,      only: [:index]
+    resources :dashboard,   only: %i(index)
+    resources :users,       only: %i(index show)
+    resources :categories,  only: %i(index destroy edit update)
+    resources :products,    only: %i(index destroy edit update new create)
+    resources :orders,      only: %i(index)
   end
-  resources :home,       only: [:index]
-  resources :carts,      only: [:index]
-  resources :categories, only: [:index, :show]
-  resources :products,   only: [:index, :show]
-  resources :cart_items, only: [:create, :update, :destroy]
-  resources :orders,     only: [:new, :create]
+  resources :home,             only: %i(index)
+  resources :carts,            only: %i(index)
+  resources :categories,       only: %i(show)
+  resources :products,         only: %i(index show)
+  resources :cart_items,       only: %i(create update destroy)
+  resources :orders,           only: %i(new create)
+  resources :users,            only: %i(show update)
+  resources :addresses,        only: %i(new create)
   get "*path", to: "application#page_404"
 end

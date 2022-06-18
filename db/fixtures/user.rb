@@ -18,7 +18,7 @@ User.create!(
     email:                 Faker::Internet.email,
     name:                  Faker::Name.name,
     phone:                 Faker::PhoneNumber.cell_phone,
-    gender:                Faker::Gender.binary_type,
+    gender:                Faker::Gender.binary_type.downcase,
     role:                  0,
     avatar:                "varun.jpg",
     is_active:             true,

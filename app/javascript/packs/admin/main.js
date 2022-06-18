@@ -14,10 +14,19 @@ $(document).ready(function(){
       method: 'DELETE'
     });
   });
+
+  $(document).on("change", ".category-option", function(){
+    var id = $(this).val();
+    $.ajax({
+      url: '/admin/categories/' + id,
+      method: 'PUT'
+    });
+  });
+
 });
 
-if($(".flash-alert").show()) {
+if($(".alert").show()) {
   setTimeout(function(){
-    $(".flash-alert").hide("3000")
+    $(".alert").hide("3000")
   }, 2500);
 }
