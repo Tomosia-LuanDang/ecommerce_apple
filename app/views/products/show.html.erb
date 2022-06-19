@@ -81,4 +81,4 @@
     </div>
   </div>
 </div>
-<%= if current_user? render "share/modal" %>
+<%= render "share/modal" if user_signed_in? %>
