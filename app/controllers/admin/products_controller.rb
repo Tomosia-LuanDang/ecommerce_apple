@@ -11,11 +11,16 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def create
-    product = Product.new(product_params)
-    product.category_id = params[:category_id]
-    product.sold = 0
-    product.save!
-    redirect_to admin_products_path
+    @product = Product.new(product_params)
+    @product.category_id = params[:category_id]
+    @product.sold = 0
+    if @product.save
+      redirect_to admin_products_path
+      flash[:success] = "Create product success!"
+    else
+      @category = Category.all
+      render :new
+    end
   end
 
   def destroy
@@ -30,9 +35,14 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def update
-    Product.find(params[:id]).update!(product_params)
-    flash[:success] = "Update success!"
-    redirect_to admin_products_path
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      flash[:success] = "Update success!"
+      redirect_to admin_products_path
+    else
+      @category = Category.all
+      render :edit
+    end
   end
 
   private

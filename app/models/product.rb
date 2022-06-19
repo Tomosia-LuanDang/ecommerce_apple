@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   acts_as_paranoid
   mount_uploader :image, PictureUploader
 
+  validates :name, :image, :price, :residual,  presence: true
+
   scope :product_residual, -> { where("residual > ?", 0) }
   scope :oldest, -> { order('created_at ASC') }
 end

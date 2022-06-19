@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard,   only: %i(index)
     resources :users,       only: %i(index show)
-    resources :categories,  only: %i(index destroy edit update)
+    resources :categories,  only: %i(index destroy edit update new create)
     resources :products,    only: %i(index destroy edit update new create)
     resources :orders,      only: %i(index)
   end
