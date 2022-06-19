@@ -91,10 +91,6 @@ ActiveRecord::Schema.define(version: 2022_06_16_013342) do
     t.float "shipping_fee"
     t.float "total_payment"
     t.integer "payment_method"
-    t.string "email_stripe"
-    t.string "cart_number"
-    t.string "expiration_date"
-    t.string "cvc"
     t.bigint "cart_id", null: false
     t.bigint "user_id", null: false
     t.bigint "delivery_address_id", null: false

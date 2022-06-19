@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @q       = Product.ransack(params[:q])
-    @address = current_user.delivery_addresses
+    @q            = Product.ransack(params[:q])
+    @address      = current_user.delivery_addresses
+    @current_cart = current_user.cart
   end
 
   def update

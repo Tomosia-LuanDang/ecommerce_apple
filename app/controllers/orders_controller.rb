@@ -15,15 +15,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-
-    binding.pry
-    
     @cart_items = current_user.cart.cart_items
-    generates_order
     if params[:payment_method] == 'card'
       generates_charge
       @order.update(status: 1)
     end
+    generates_order
   end
 
   private
@@ -53,19 +50,12 @@ class OrdersController < ApplicationController
   end
 
   def generates_charge
-    card_token = Stripe::Token.create({
-      card: {
-        number:    params[:cart_number].delete(" "),
-        exp_month: params[:expiration_date].split("/").first,
-        exp_year:  '20' + params[:expiration_date].split("/").last,
-        cvc:       '314',
-      },
-    })
-
+    token = params[:stripeToken]
     customer = Stripe::Customer.create(
-      email:  params[:email_stripe],
-      source: card_token.id
+      email:  current_user.email,
+      source: token
     )
+    
     amount = total_payment
 
     charge = Stripe::Charge.create(

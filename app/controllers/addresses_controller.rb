@@ -2,6 +2,7 @@ class AddressesController < ApplicationController
   def new
     @q = Product.ransack(params[:q])
     @address = DeliveryAddress.new
+    @current_cart = current_user.cart
   end
 
   def create
