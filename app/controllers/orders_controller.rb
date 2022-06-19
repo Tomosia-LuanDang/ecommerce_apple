@@ -16,11 +16,11 @@ class OrdersController < ApplicationController
 
   def create
     @cart_items = current_user.cart.cart_items
+    generates_order
     if params[:payment_method] == 'card'
       generates_charge
       @order.update(status: 1)
     end
-    generates_order
   end
 
   private

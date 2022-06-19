@@ -24,7 +24,6 @@ import "./cart_product"
 import "./order"
 import "./home"
 import "./admin/main"
-import "./stripe"
 
 import "bootstrap"
 import 'bootstrap-icons/font/bootstrap-icons.css'
