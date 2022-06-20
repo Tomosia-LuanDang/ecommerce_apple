@@ -16,10 +16,13 @@ $(document).ready(function(){
   });
 
   $(document).on("change", ".category-option", function(){
-    var id = $(this).val();
+    var cate_id = $(this).val();
     $.ajax({
-      url: '/admin/admin_category/' + id,
-      method: 'GET'
+      url: '/admin/categories/',
+      method: 'GET',
+      data: {
+        id: cate_id
+      }
     });
   });
 

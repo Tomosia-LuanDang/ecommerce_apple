@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @q                = Product.ransack(params[:q])
     @order_items      = current_user.cart.cart_items.includes(:product).latest
