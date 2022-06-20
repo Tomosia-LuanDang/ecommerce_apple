@@ -18,10 +18,12 @@ $(document).ready(function(){
   $(document).on("change", ".category-option", function(){
     var id = $(this).val();
     $.ajax({
-      url: '/admin/categories/' + id,
-      method: 'PUT'
+      url: '/admin/admin_category/' + id,
+      method: 'GET'
     });
   });
+
+
 
 });
 

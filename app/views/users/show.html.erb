@@ -66,7 +66,6 @@
       <div class="white-box">
         <span><%= link_to "New Adress", new_address_path, class: "btn btn-primary" %></span>
         <div class="user-btm-box mt-5 user-address">
-          <%# select_tag :address, options_from_collection_for_select(@address, "id", "address"), class: "form-select category-option d-block" %>
           <%= render partial: "users/address", collection: @address %>
         </div>
       </div>
