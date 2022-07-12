@@ -58,27 +58,11 @@
           </div>
         </div>
         <div class="row row-underline">
-          <div class="col-md-6"> <span class="ml-2 mt-4 deal-text">Specifications</span> </div>
+          <div class="col-md-6"> <span class="ml-2 mt-4 deal-text"></span> </div>
           <div class="col-md-6"> <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a> </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <table class="col-md-12">
-              <tbody>
-                <tr class="row mt-10">
-                  <td class="col-md-4"><span class="p_specification">Công nghệ màn hình</span> </td>
-                  <td class="col-md-8">
-                    <ul>
-                      <li>OLED</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= render "share/modal" %>
+<%= render "share/modal" if user_signed_in? %>

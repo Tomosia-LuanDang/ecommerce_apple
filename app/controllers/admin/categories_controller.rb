@@ -1,4 +1,19 @@
 class Admin::CategoriesController < Admin::BaseController
+
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_param)
+    if @category.save
+      redirect_to admin_categories_path
+      flash[:success] = "Create category success!"
+    else
+      render :new
+    end
+  end
+
   def index
     @categories = Category.all
   end
@@ -14,16 +29,22 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def update
-    Category.find(params[:id]).update!(name: params[:category][:name])
-    flash[:success] = "Update success!"
-    redirect_to admin_categories_path
+    @category = Category.find(params[:id])
+    if @category.update(category_param)
+      flash[:success] = "Update success!"
+      redirect_to admin_categories_path
+    else
+      render :edit
+    end
   end
 
   def show
-
-    binding.pry
-    
     @categories = Category.all
     @product_by_cate = Category.find(params[:id]).products.page(params[:page]).per(12)
+  end
+
+  private
+  def category_param
+    params.require(:category).permit(:name)
   end
 end

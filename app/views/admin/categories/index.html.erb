@@ -1,8 +1,8 @@
+<% provide :title, "Category" %>
 <div class="row">
   <div class="col-sm-12">
     <div class="white-box">
-      <h3 class="box-title">Basic Table</h3>
-      <p class="text-muted">Add class <code>.table</code></p>
+      <%= button_to "New category", new_admin_category_path, method: :get, class: "btn btn-primary mb-3" %>
       <div class="table-responsive">
         <table class="table text-nowrap">
           <thead>

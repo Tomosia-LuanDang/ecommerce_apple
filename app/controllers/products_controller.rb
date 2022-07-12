@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @q = Product.ransack(params[:q])
     @products = @q.result.page(params[:page]).per(12).product_residual
 
-    @current_cart = current_user.cart
+    @current_cart = current_user&.cart
   end
 
   def show

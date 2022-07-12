@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard,   only: %i(index)
     resources :users,       only: %i(index show)
-    resources :categories,  only: %i(index destroy edit update)
+    resources :categories,  only: %i(index destroy edit update new create)
     resources :products,    only: %i(index destroy edit update new create)
     resources :orders,      only: %i(index)
   end
@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :cart_items,       only: %i(create update destroy)
   resources :orders,           only: %i(new create)
   resources :users,            only: %i(show update)
-  resources :addresses,        only: %i(new create)
+  resources :addresses,        only: %i(new create edit update)
   get "*path", to: "application#page_404"
 end
